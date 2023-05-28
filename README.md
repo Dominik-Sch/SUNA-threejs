@@ -1,5 +1,4 @@
-# SUNA-threejs
-## **SETUP**
+# **SETUP**
 
 `npm install --save three`  
 `npm install --save-dev vite`  
