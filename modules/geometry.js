@@ -101,7 +101,6 @@ export function createCurve(size = 100, extrude = 100) {
         .lineTo(size, size)
         .lineTo(size, 0)
         .arc( -size, 0, size, THREE.MathUtils.degToRad(0), THREE.MathUtils.degToRad(60), false )
-        //.bezierCurveTo(100, 100, 0, 0)
 
     // die vektoren für den pfad
     const extrudeStart = new THREE.Vector3(0, 0, extrude/-2);

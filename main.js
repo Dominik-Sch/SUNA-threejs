@@ -282,11 +282,27 @@ sceneGroup.rotateZ(THREE.MathUtils.degToRad(55))
 animate();
 
 function animate() {
+    let count = 0;
     requestAnimationFrame( animate );
 
     // required if controls.enableDamping or controls.autoRotate are set to true
     //sceneGroup.rotation.y += 0.005;
     controls.update();
+    sceneGroup.traverse(function (object) {
+
+        if (object.isMesh) {
+            count++;
+            if (count % 2 === 0) {
+                //object.position.y -= Math.sin(((count) * (count))) * 10;
+                //object.position.x -= Math.cos(((count) * (count))) * 10;
+            } else {
+                //object.position.y += Math.sin(((count) * (count))) * 10;
+                //object.position.x += Math.cos(((count) * (count))) * 10;
+                //object.material.opacity -= 0.0001;
+                //object.material.transparent = true;
+            }
+        }
+    })
 
     renderer.render( scene, camera );
 }
