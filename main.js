@@ -279,10 +279,12 @@ object9.rotateZ(THREE.MathUtils.degToRad(180));
 scene.add(sceneGroup);
 sceneGroup.rotateZ(THREE.MathUtils.degToRad(55))
 
-animate();
+let frameCount = 0;
 
 function animate() {
     let count = 0;
+    frameCount++;
+    console.log(frameCount);
     requestAnimationFrame( animate );
 
     // required if controls.enableDamping or controls.autoRotate are set to true
@@ -290,7 +292,7 @@ function animate() {
     controls.update();
     sceneGroup.traverse(function (object) {
 
-        if (object.isMesh) {
+        if (object.isMesh && frameCount > 200) {
             count++;
             if (count % 2 === 0) {
                 //object.position.y -= Math.sin(((count) * (count))) * 10;
@@ -306,3 +308,5 @@ function animate() {
 
     renderer.render( scene, camera );
 }
+
+animate();
